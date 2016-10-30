@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 25, 2016, 5:21:58 AM
+    Author     : programmer
+*/
+.home{
+    /*    
+        -fx-background-color: red ;
+        -fx-border-color: red;*/
+//goldenrod,olivedrab
+
+-fx-background-color: #ffffff;
+    -fx-background-radius: 30;
+    /*-fx-background-insets: 0,1,2,3,0;*/
+    -fx-text-fill: #e6e6e6;
+    -fx-font-weight: bold;
+    /*-fx-font-size: 14px;*/
+    /*-fx-padding: 10 20 10 20;*/
+    /*-fx-underline: true;*/
+
+}
+.home:hover{
+    /*    
+        -fx-background-color: red ;
+        -fx-border-color: red;*/
+
+
+    -fx-background-color:  blanchedalmond;
+    /*-fx-background-radius: 20;*/
+/*    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #e6e6e6;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;*/
+    /*-fx-text-decoration: underline;*/
+    /*-fx-underline: true;*/
+}
+.label:hover{
+    
+        -fx-underline: true;
+        
+       
+    
+}
