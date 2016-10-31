@@ -26,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import login.mycontroller;
 
 /**
  * FXML Controller class
@@ -88,6 +89,7 @@ public class FxmlController implements Initializable {
     private ImageView image5;
     @FXML
     private ImageView image6;
+    public static String name = "";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -131,8 +133,20 @@ public class FxmlController implements Initializable {
         exam_label.getStyleClass().add("label1");
 
         try {
-            VBox v = FXMLLoader.load(getClass().getResource("vbox.fxml"));
-            v.setStyle("vbox.css");
+
+            FXMLLoader load = new FXMLLoader();
+
+            Parent v = load.load(getClass().getResource("vbox.fxml").openStream());
+            VboxController user = (VboxController) load.getController();
+            v.getStylesheets().add("pane/vbox.css");
+            if (!name.equals("")) {
+                user.user(name);
+                
+            }else 
+            {
+              user.cancel_logout();
+            }
+
             drawer.setSidePane(v);
         } catch (IOException ex) {
             Logger.getLogger(FxmlController.class.getName()).log(Level.SEVERE, null, ex);
@@ -265,4 +279,13 @@ public class FxmlController implements Initializable {
         admin.setStyle("-fx-border-color: white ;");
 
     }
+
+//    public void add(String name) throws IOException {
+//
+//        FXMLLoader load = new FXMLLoader();
+//        Parent root = load.load(getClass().getResource("vbox.fxml").openStream());
+//        VboxController user = (VboxController) load.getController();
+//        user.add(name);
+//
+//    }
 }

@@ -269,7 +269,8 @@ public class mycontroller implements Initializable {
             } else {
 
                 try {
-                    // ------------------ insert user ------------------------------
+           
+                         // ------------------ insert user ------------------------------
 
                     String name = txt_name.getText();
                     String email = txt_email2.getText();
@@ -289,6 +290,8 @@ public class mycontroller implements Initializable {
 
                     }
 
+                    
+                    
 //                    new dialogs.dialog(Alert.AlertType.INFORMATION, "Login successfully ... ", "Done Sign up : mr/ms " + name);
                 } catch (SQLException ex) {
                     new dialogs.dialog(Alert.AlertType.ERROR, "Error", ex.getMessage());
@@ -313,6 +316,7 @@ public class mycontroller implements Initializable {
         // make login is the main 
         mainpane.getSelectionModel().select(btn_log);
         sign_btn.setDisable(true);
+        
     }
 
     public void sign_main() {
@@ -444,4 +448,6 @@ public class mycontroller implements Initializable {
         noti.show();
 
     }
+
+ 
 }
