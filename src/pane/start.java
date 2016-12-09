@@ -23,6 +23,7 @@ import login.mycontroller;
 public class start {
 
     public static Stage s = new Stage();
+//    public static String eee = "";
 
     public start() throws IOException {
         Stage s = new Stage();
@@ -66,8 +67,10 @@ public class start {
 
     }
 
-    public start(String type, String name) throws IOException {
+    public start(String type, String name, String email) throws IOException {
         FxmlController.name = name;
+        FxmlController.email = email;
+//        eee = email;
 //        Stage s = new Stage();
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml.fxml"));
         FXMLLoader load = new FXMLLoader();
@@ -76,7 +79,8 @@ public class start {
 
         if (type.equals("user")) {
             user.user_privilage();
-            System.out.println("Done1");
+
+            System.out.println("Done1++++++++++++++++++++++++++++++++++++++");
 
         } else if (type.equals("admin")) {
             user.admin_privilage();

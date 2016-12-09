@@ -1,19 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="1209.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="about_us.About_usController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="529.0" prefWidth="1209.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="about_us.About_usController">
     <stylesheets>
         <URL value="@about_us.css" />
     </stylesheets>
    <children>
-      <Text fill="#fc0f0f" layoutX="287.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About us">
+      <Label fx:id="label1" layoutX="41.0" layoutY="40.0" prefHeight="49.0" prefWidth="592.0" text="We Hope you Like Our Application" textFill="#0a68c6">
          <font>
-            <Font size="28.0" />
+            <Font name="Algerian" size="27.0" />
          </font>
-      </Text>
+      </Label>
+      <Label layoutX="759.0" layoutY="50.0" prefHeight="30.0" prefWidth="547.0" text="How to use our application" textFill="#1356d3">
+         <font>
+            <Font name="Algerian" size="24.0" />
+         </font>
+      </Label>
+      <Line endY="200.0" layoutX="685.0" layoutY="150.0" />
+      <AnchorPane layoutX="31.0" layoutY="107.0" prefHeight="341.0" prefWidth="569.0" style="-fx-background-color: #00BFFF;">
+         <children>
+            <ImageView fx:id="image1" fitHeight="35.0" fitWidth="41.0" layoutX="267.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@received_1799643136927162.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image2" fitHeight="36.0" fitWidth="32.0" layoutX="269.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@received_1799643136927162.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image3" fitHeight="36.0" fitWidth="32.0" layoutX="269.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@received_1799643136927162.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image4" fitHeight="36.0" fitWidth="32.0" layoutX="269.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@received_1799643136927162.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="image5" fitHeight="36.0" fitWidth="32.0" layoutX="269.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@received_1799643136927162.jpeg" />
+               </image>
+            </ImageView>
+            <Label fx:id="label2" layoutX="24.0" layoutY="48.0" prefHeight="34.0" prefWidth="178.0" text="Ahmed Marei ">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="label4" layoutX="24.0" layoutY="154.0" prefHeight="34.0" prefWidth="201.0" text="Mohamed Gomaa ">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="label5" layoutX="24.0" layoutY="210.0" prefHeight="34.0" prefWidth="178.0" text="Ahmed Adel">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="label6" layoutX="28.0" layoutY="262.0" prefHeight="33.0" prefWidth="171.0" text="Amira Gomaa">
+               <font>
+                  <Font name="Arial Unicode MS" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="label3" layoutX="24.0" layoutY="99.0" prefHeight="35.0" prefWidth="178.0" text="Ahmed Eldeeb">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label7" layoutX="313.0" layoutY="262.0" prefHeight="30.0" prefWidth="253.0" text="merogomaa8@gmail.com" textFill="#cd3129">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="label9" layoutX="303.0" layoutY="160.0" prefHeight="30.0" prefWidth="292.0" text="muhamedgomaa28@gmail.com" textFill="#ab2109">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="label11" layoutX="313.0" layoutY="50.0" prefHeight="30.0" prefWidth="292.0" text="ahmedmar3y108@gmail.com" textFill="#ab1309">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="label8" layoutX="313.0" layoutY="212.0" prefHeight="30.0" prefWidth="246.0" text="s.w.a.adel7890@gmail.com" textFill="#ab1e09">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="label10" layoutX="319.0" layoutY="101.0" prefHeight="30.0" prefWidth="260.0" text="ahmedeldeeb2013@yahoo.com" textFill="#ab3a09">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="77.34" radius="38.91" spread="0.21" width="80.3" />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="723.0" layoutY="100.0" prefHeight="401.0" prefWidth="416.0" style="-fx-background-color: #00BFFF;">
+         <children>
+            <Label fx:id="label13" layoutX="22.0" layoutY="14.0" prefHeight="84.0" prefWidth="350.0" text="Search:&#10;help user to search about&#10;course an available links.&#10;" textFill="#0a5f83">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label14" layoutX="22.0" layoutY="121.0" prefHeight="91.0" prefWidth="350.0" text="Exam:&#10;user can perform exam after&#10;login to the system.&#10;&#10;&#10;&#10;" textFill="#0a5f83">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label16" layoutX="22.0" layoutY="232.0" prefHeight="84.0" prefWidth="350.0" text="Grade:&#10;user  can know his grade &#10;about his exam.&#10;&#10;&#10;&#10;&#10;" textFill="#0a5f83">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="label17" layoutX="22.0" layoutY="335.0" prefHeight="84.0" prefWidth="350.0" text="Admin:&#10;refere to admin users can't&#10;open it.&#10;&#10;&#10;&#10;&#10;&#10;" textFill="#0a5f83">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow height="62.51" radius="31.497500000000002" spread="0.2" width="65.48" />
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -1,19 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="1209.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="search.SearchController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="529.0" prefWidth="1209.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="search.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
    <children>
-      <Text fill="#fc0f0f" layoutX="277.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="search">
+      <JFXTextField fx:id="input" labelFloat="true" layoutX="54.0" layoutY="58.0" maxWidth="328.0" minWidth="243.0" prefHeight="51.0" prefWidth="262.0" promptText="Enter course name">
          <font>
-            <Font size="28.0" />
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <Label fx:id="detail" alignment="TOP_LEFT" contentDisplay="TOP" ellipsisString="" layoutX="575.0" layoutY="179.0" prefHeight="202.0" prefWidth="548.0" style="-fx-background-color: #87CEEB;" textOverrun="CLIP">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <effect>
+            <ColorAdjust brightness="0.29" contrast="-0.05" hue="-0.06" saturation="0.87">
+               <input>
+                  <InnerShadow>
+                     <input>
+                        <Reflection />
+                     </input>
+                  </InnerShadow>
+               </input>
+            </ColorAdjust>
+         </effect>
+      </Label>
+      <JFXButton fx:id="search" layoutX="371.0" layoutY="61.0" onAction="#action" prefHeight="45.0" prefWidth="143.0" text="Search">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </JFXButton>
+      <Text fx:id="text" fill="RED" layoutX="768.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="More Details" underline="true" wrappingWidth="161.765625">
+         <font>
+            <Font name="Arial Narrow" size="26.0" />
          </font>
       </Text>
+      <VBox fx:id="vbox" layoutX="46.0" layoutY="208.0" prefHeight="271.0" prefWidth="505.0">
+         <effect>
+            <DropShadow color="#b94f4f" height="0.0" radius="0.0" spread="0.5" width="0.0" />
+         </effect>
+      </VBox>
+      <Text fx:id="youtube" fill="RED" fontSmoothingType="LCD" layoutX="253.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tutorial" textAlignment="CENTER" underline="true" wrappingWidth="91.408203125">
+         <font>
+            <Font name="Andalus" size="29.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="image" fitHeight="128.0" fitWidth="128.0" layoutX="622.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

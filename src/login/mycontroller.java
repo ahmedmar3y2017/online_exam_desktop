@@ -10,6 +10,8 @@ import com.jfoenix.controls.JFXTextField;
 import database.database;
 import java.awt.Image;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -30,6 +32,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Tab;
@@ -38,6 +41,7 @@ import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
 import org.controlsfx.control.Notifications;
@@ -126,9 +130,12 @@ public class mycontroller implements Initializable {
     private Label label_confirm_exiption;
     @FXML
     private Label label_box1;
-
-    @FXML
-    private ImageView image1;
+    private static String eemail;
+    
+    
+//
+//    @FXML
+//    private ImageView image1;
 
     @FXML
     private ImageView image2;
@@ -137,6 +144,14 @@ public class mycontroller implements Initializable {
     ObservableList<String> List = FXCollections.observableArrayList("user", "Admin");
 
     ObservableList<String> List2 = FXCollections.observableArrayList("user", "Admin");
+
+    @FXML
+    private Hyperlink upload;
+
+    @FXML
+    private ImageView person;
+
+    private File iconimage;
 
     public void control(ActionEvent e) {
         clear_login();
@@ -175,28 +190,55 @@ public class mycontroller implements Initializable {
                 String type = combobox1.getSelectionModel().getSelectedItem();
                 String email1 = txt_email1.getText();
                 String pass1 = txt_pass1.getText();
+                /// if admin
+                if (type.equals("Admin")) {
 
-                if (type.equals("admin")) {
+                    try {
+                        database data = new database();
+                        if (data.check_admin_login(email1, pass1)) {
 
-                    System.out.println("Admin");
+                            String name = data.get_admin_name(email1);
+//                            System.out.println(name + "-------///////////////////");
 
-                } 
-                // if this is user 
+                            login.stage.close();
+                            Pane.s.close();
+                            
+//                            System.out.println("Close ......................");
+                            try {
+                                start s = new start("admin", name, email1);
+//                                System.out.println("Admin ........................../");
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+
+                            push_notification("corr.png", "Done Login .... ", "Hello  mr/ms : " + name);
+                        } else {
+                            push_notification("error.png", "Error .... ", "This admin account not Exist  .....");
+                        }
+
+                    } catch (SQLException ex) {
+                        Logger.getLogger(mycontroller.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(mycontroller.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } // if this is user 
                 else {
                     try {
                         database data = new database();
                         if (data.check_user_login(email1, pass1)) {
 
                             String name = data.get_name(email1);
-                            
+
                             login.stage.close();
                             Pane.s.close();
                             try {
-                                start s=new start("user",name);
+                                setEemail(email1);
+                                start s = new start("user", name, email1);
                             } catch (IOException ex) {
                                 Logger.getLogger(mycontroller.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            
+
                             push_notification("corr.png", "Done Login .... ", "Hello  mr/ms : " + name);
                         } else {
                             push_notification("error.png", "Error .... ", "This account not Exist \n\n Please sign up .....");
@@ -269,9 +311,8 @@ public class mycontroller implements Initializable {
             } else {
 
                 try {
-           
-                         // ------------------ insert user ------------------------------
 
+                    // ------------------ insert user ------------------------------
                     String name = txt_name.getText();
                     String email = txt_email2.getText();
                     String pass = txt_pass2.getText();
@@ -282,16 +323,33 @@ public class mycontroller implements Initializable {
                         push_notification("error.png", "Error .... ", "This Email already Used .... !");
 
                     } else {
-                        data.insert_user(name, email, pass);
-                        clear_sign();
-                        login.stage.close();
+                        /*                   if (iconimage != null) {
+                         FileInputStream fis = new FileInputStream(iconimage);
 
-                        push_notification("corr.png", "Done ... ", "Done sign up \n Hello mr/ms :" + name);
+                         database data = new database();
+                         data.insert_image(7, "mohamed", fis, iconimage.length());
+
+                         System.out.println("Done");
+
+                         } else {
+                         System.out.println("CHoose Image");
+                         }*/
+                        if (iconimage != null) {
+                            FileInputStream fis = new FileInputStream(iconimage);
+
+                            data.insert_user(name, email, pass, fis, iconimage.length());
+                            clear_sign();
+                            login.stage.close();
+
+                            push_notification("corr.png", "Done ... ", "Done sign up \n Hello mr/ms :" + name);
+
+                        } else {
+                            push_notification("error.png", "Error ... ", "Choose Image .... \n Choose profile picture ... mr/ms : :" + name);
+
+                        }
 
                     }
 
-                    
-                    
 //                    new dialogs.dialog(Alert.AlertType.INFORMATION, "Login successfully ... ", "Done Sign up : mr/ms " + name);
                 } catch (SQLException ex) {
                     new dialogs.dialog(Alert.AlertType.ERROR, "Error", ex.getMessage());
@@ -316,7 +374,7 @@ public class mycontroller implements Initializable {
         // make login is the main 
         mainpane.getSelectionModel().select(btn_log);
         sign_btn.setDisable(true);
-        
+
     }
 
     public void sign_main() {
@@ -332,7 +390,7 @@ public class mycontroller implements Initializable {
 
 //        File file = new File("src/change.png");
 //        javafx.scene.image.Image image = new javafx.scene.image.Image(file.toURI().toString());
-        image1.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("ami.png")));
+        person.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("ami.png")));
         image2.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("change.png")));
 
         combobox1.setItems(List);
@@ -449,5 +507,25 @@ public class mycontroller implements Initializable {
 
     }
 
- 
+    public void uploadAction(ActionEvent event) throws FileNotFoundException {
+
+        FileChooser filechooser = new FileChooser();
+        iconimage = filechooser.showOpenDialog(mainpane.getScene().getWindow());
+        System.out.println(iconimage.getName());
+        if (iconimage != null) {
+            String iconimagepath = iconimage.getAbsolutePath();
+            System.out.println(iconimagepath);
+            person.setImage(new javafx.scene.image.Image(new FileInputStream(iconimage)));
+        }
+
+    }
+
+    public static  String getEemail() {
+        return eemail;
+    }
+
+    public void setEemail(String eemail) {
+        this.eemail = eemail;
+    }
+
 }

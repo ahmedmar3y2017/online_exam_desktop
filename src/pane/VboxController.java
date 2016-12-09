@@ -6,11 +6,18 @@
 package pane;
 
 import com.jfoenix.controls.JFXButton;
+import database.database;
 import dialogs.confirm_dialog;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +28,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import javax.imageio.ImageIO;
 import login.login;
 import login.mycontroller;
 import org.controlsfx.control.Notifications;
@@ -54,12 +64,17 @@ public class VboxController implements Initializable {
     @FXML
     private JFXButton logout;
 
+    @FXML
+    private VBox vb;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         javafx.scene.image.Image im1 = new javafx.scene.image.Image(getClass().getResourceAsStream("user.png"));
         image.setImage(im1);
         Login.getStyleClass().add("button");
+
+        vb.getStyleClass().add("root");
 
     }
 
@@ -68,7 +83,6 @@ public class VboxController implements Initializable {
         if (event.getSource() == Login) {
 
             login login = new login("login");
-
         }
         if (event.getSource() == register) {
             login login = new login("sign");
@@ -108,10 +122,35 @@ public class VboxController implements Initializable {
 
     }
 
+    void admin(String nname) {
+        name.setText(nname);
+        Login.setDisable(true);
+        register.setDisable(true);
+
+    }
+
     void cancel_logout() {
 
         logout.setDisable(true);
 
+    }
+
+    public void set_user_image(String email) throws SQLException, ClassNotFoundException {
+        database data = new database();
+        Image i = convertToJavaFXImage(data.retrieve_image(email), 1024, 768);
+        image.setImage(i);
+    }
+
+    private static Image convertToJavaFXImage(byte[] raw, final int width, final int height) {
+        WritableImage image = new WritableImage(width, height);
+        try {
+            ByteArrayInputStream bis = new ByteArrayInputStream(raw);
+            BufferedImage read = ImageIO.read(bis);
+            image = SwingFXUtils.toFXImage(read, null);
+        } catch (IOException ex) {
+            Logger.getLogger(VboxController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return image;
     }
 
 }

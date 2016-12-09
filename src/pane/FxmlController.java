@@ -7,9 +7,11 @@ package pane;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -89,7 +91,11 @@ public class FxmlController implements Initializable {
     private ImageView image5;
     @FXML
     private ImageView image6;
+
     public static String name = "";
+    public static String email = "";
+    @FXML
+    private AnchorPane rrr;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -140,11 +146,22 @@ public class FxmlController implements Initializable {
             VboxController user = (VboxController) load.getController();
             v.getStylesheets().add("pane/vbox.css");
             if (!name.equals("")) {
-                user.user(name);
-                
-            }else 
-            {
-              user.cancel_logout();
+                if (name.equals("user")) {
+                    user.user(name);
+                    try {
+                        user.set_user_image(email);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FxmlController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(FxmlController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else {
+                    user.admin(name);
+
+                }
+            } else {
+                user.cancel_logout();
             }
 
             drawer.setSidePane(v);
@@ -193,6 +210,9 @@ public class FxmlController implements Initializable {
 //
 //        javafx.scene.image.Image r5 = new javafx.scene.image.Image(getClass().getResourceAsStream("error.png"));
 //        image5.setImage(r5);
+//        JFXRippler r1 = new JFXRippler();
+//
+//        start.getChildren().add(r1);
     }
 
     public void action(ActionEvent e) throws IOException {
@@ -206,7 +226,6 @@ public class FxmlController implements Initializable {
 
             Node p = FXMLLoader.load(getClass().getResource("start.fxml"));
             start.getChildren().clear();
-
             start.getChildren().add(p);
 
         }
@@ -215,8 +234,8 @@ public class FxmlController implements Initializable {
             System.out.println("search");
 
             Node p = FXMLLoader.load(getClass().getResource("/search/search.fxml"));
-            start.getChildren().clear();
 
+            start.getChildren().clear();
             start.getChildren().add(p);
 
         }
@@ -224,6 +243,10 @@ public class FxmlController implements Initializable {
             System.out.println("grade");
 
             Node p = FXMLLoader.load(getClass().getResource("/grade/grade.fxml"));
+//            FXMLLoader ll = new FXMLLoader();
+//            Parent p = ll.load(getClass().getResource("/grade/grade.fxml").openStream());
+//            grade.GradeController u = (grade.GradeController) ll.getController();
+//            u.set();
             start.getChildren().clear();
 
             start.getChildren().add(p);
@@ -250,7 +273,7 @@ public class FxmlController implements Initializable {
         if (ee.getSource() == exam) {
             System.out.println("exam");
 
-            Node p = FXMLLoader.load(getClass().getResource("/exam/exam.fxml"));
+            Node p = FXMLLoader.load(getClass().getResource("/exam/start.fxml"));
             start.getChildren().clear();
 
             start.getChildren().add(p);
@@ -270,8 +293,8 @@ public class FxmlController implements Initializable {
 
     public void admin_privilage() {
 
-        exam.setDisable(false);
-        grade.setDisable(false);
+//        exam.setDisable(false);
+//        grade.setDisable(false);
         admin.setDisable(false);
 
         exam.setStyle("-fx-border-color: white ;");

@@ -2,6 +2,22 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+.pane{
+    -fx-background-color:white;
+    
+}
+.label1{
+    -fx-font-size: 40px;
+}
+.label1:hover{
+    
+        -fx-underline: false;
+        
+       
+    
+}
 
+.label12{
+      -fx-background-color:black;
+    
 }

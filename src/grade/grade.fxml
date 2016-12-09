@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="1209.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grade.GradeController">
+<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="1209.0" style="-fx-background-color: #00FFFF;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="grade.GradeController">
     <stylesheets>
         <URL value="@grade.css" />
     </stylesheets>
    <children>
-      <Text fill="#fc0f0f" layoutX="287.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="grade">
+      <Label fx:id="text" layoutX="482.0" layoutY="14.0" prefHeight="122.0" prefWidth="245.0" text="ssss" textAlignment="JUSTIFY">
          <font>
-            <Font size="28.0" />
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Text layoutX="384.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserName :">
+         <font>
+            <Font size="16.0" />
          </font>
       </Text>
+      <VBox fx:id="grade_vbox" layoutX="108.0" layoutY="132.0" prefHeight="354.0" prefWidth="634.0" />
+      <ImageView fx:id="image" fitHeight="256.0" fitWidth="256.0" layoutX="832.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

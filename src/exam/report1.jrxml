@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style1" fontSize="16"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="grade" class="java.lang.Integer"/>
+	<parameter name="course_name" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="251" y="15" width="292" height="64" forecolor="#FF0000"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Course Certificate]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="17" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="183" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="0" width="778" height="87"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[The software sloution National General Certificate provides a broad understanding of learning online and take certification, covering the legal requirements for course
+The course is split into - 1 - tutorial which is learning  - 2 - online exam to take certification .]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="102" width="344" height="20"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[  Software solution company provide certificstion to mr/ms : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="379" y="102" width="100" height="20"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="489" y="104" width="87" height="20"/>
+				<textElement/>
+				<text><![CDATA[for passing course ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="588" y="104" width="166" height="40"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{course_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="134" width="100" height="20"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[and his grade is : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="135" y="134" width="100" height="20"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{grade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="109" splitType="Stretch">
+			<image>
+				<reportElement x="522" y="12" width="145" height="83"/>
+				<imageExpression><![CDATA["E:\\rec project\\online_exam\\src\\exam\\certified-stamp-resized-600.gif"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="657.0" prefWidth="1203.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pane.FxmlController">
+<AnchorPane id="AnchorPane" fx:id="rrr" prefHeight="657.0" prefWidth="1203.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pane.FxmlController">
    <children>
       <StackPane fx:id="start" layoutX="-2.0" layoutY="126.0" prefHeight="529.0" prefWidth="1209.0" style="-fx-background-color: #dddddd;" />
       <AnchorPane fx:id="home" layoutX="14.0" layoutY="14.0" onMouseClicked="#mouse_Event" prefHeight="107.0" prefWidth="113.0">
@@ -52,7 +52,7 @@
          </children>
       </AnchorPane>
       <JFXHamburger fx:id="hamburger" layoutX="1118.0" layoutY="17.0" prefHeight="40.0" prefWidth="77.0" />
-      <JFXDrawer fx:id="drawer" defaultDrawerSize="190.0" layoutX="1055.0" layoutY="51.0" prefHeight="295.0" prefWidth="140.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="190.0" layoutX="1015.0" layoutY="51.0" prefHeight="320.0" prefWidth="180.0" />
       <AnchorPane fx:id="exam" layoutX="279.0" layoutY="17.0" onMouseClicked="#mouse_Event" prefHeight="107.0" prefWidth="113.0">
          <children>
             <ImageView fx:id="image3" fitHeight="60.0" fitWidth="60.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
