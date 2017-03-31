@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="online_exam.jnlp">
+  <information>
+    <title>online_exam</title>
+    <vendor>programmer</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib/JTattoo-1.6.10.jar" size="1133022" download="eager" />
+    <jar href="lib/commons-beanutils-1.8.2.jar" size="231891" download="eager" />
+    <jar href="lib/commons-collections-3.2.1.jar" size="575389" download="eager" />
+    <jar href="lib/commons-digester-1.7.jar" size="139966" download="eager" />
+    <jar href="lib/commons-logging-1.1.jar" size="52592" download="eager" />
+    <jar href="lib/controlsfx-8.40.12.jar" size="996389" download="eager" />
+    <jar href="lib/forms.jar" size="88620" download="eager" />
+    <jar href="lib/groovy-all-1.7.5.jar" size="5482221" download="eager" />
+    <jar href="lib/jasperreports-4.0.2.jar" size="3118974" download="eager" />
+    <jar href="lib/jasperreports-applet-4.5.1.jar" size="445805" download="eager" />
+    <jar href="lib/jasperreports-fonts-4.5.1.jar" size="2478096" download="eager" />
+    <jar href="lib/jasperreports-javaflow-4.5.1.jar" size="3486719" download="eager" />
+    <jar href="lib/jcalendar-1.3.2.jar" size="126630" download="eager" />
+    <jar href="lib/jfoenix.jar" size="2154926" download="eager" />
+    <jar href="lib/l2fprod-common-all.jar" size="460896" download="eager" />
+    <jar href="lib/looks-2.1.3.jar" size="409429" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.27-bin.jar" size="872303" download="eager" />
+    <jar href="lib/org.apache.servicemix.bundles.jexcelapi-2.4.2_3.jar" size="506924" download="eager" />
+    <jar href="lib/swingx.jar" size="1259851" download="eager" />
+    <jar href="lib/xswingx.jar" size="415917" download="eager" />
+    <jar href="online_exam.jar" size="2097567" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="online_exam" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="pane.Pane"  name="online_exam" />
+  <update check="always"/>
+</jnlp>
